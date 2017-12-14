@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "Condo APP",
+    "slug": "condo-app-v1.12B",
+    "version": "0.1.12",
+    "sdkVersion": "19.0.0",
+    "icon": "./images/icon2.png",
+    "orientation": "portrait",
+    "privacy": "public",
+    "ios": {
+      "bundleIdentifier": "com.condminio.condoapp"
+    },
+    "android": {
+      "package": "com.condminio.condoapp"
+    }
+  }
+}
