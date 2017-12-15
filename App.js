@@ -2,44 +2,44 @@ import React from 'react';
 import {
    TextInput, Button, AppRegistry, StyleSheet, Text, Image, View, ScrollView, TouchableOpacity, Navigate, KeyboardAvoidingView
 } from 'react-native';
+import { Col, Row, Grid } from "react-native-easy-grid";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Hideo } from 'react-native-textinput-effects';
 import { StackNavigator } from 'react-navigation';
-
+import Communications from 'react-native-communications';
 
 class HomeScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
 
     const customTextButton = (
-      <Icon.Button name="sign-in" backgroundColor="#11cf78" onPress={() => navigate('Profile')} >
+      <Icon.Button name="sign-in" backgroundColor="#11cf78" onPress={() => navigate('Address')} >
         <Text style={{fontFamily: 'Roboto', fontSize: 15, color:"#FFF"}} >Iniciar Sesion</Text>
       </Icon.Button>
     );
     return (
-            <Image source={require('./images/bg.jpg')} style={styles.backgroundImage}>
-            <KeyboardAvoidingView style={styles.container}>
-              <View style={[styles.header]}></View>
-              <ScrollView>
-                <View style={[styles.content]}>
-                  <View style={[styles.whbox]}></View>
-                  <Image source={require('./images/logo.png')} style={styles.LogoP}/>
-                  <View style={[styles.whbox]}></View>
-                  <View style={[styles.content]}>
-                  <View style={[styles.textInput]}>
-                  {customUserName}
-                  </View>
-                  <View style={[styles.textInput]}>
-                  {customPassword}
-                  </View>
+      <Image source={require('./images/bg.jpg')} style={styles.backgroundImage}>
+        <KeyboardAvoidingView style={styles.container}>
+          <View style={[styles.header]}></View>
+          <ScrollView>
+            <View style={[styles.content]}>
+              <View style={[styles.whbox]}></View>
+              <Image source={require('./images/logo.png')} style={styles.LogoP}/>
+              <View style={[styles.whbox]}></View>
+              <View style={[styles.content]}>
+              <View style={[styles.textInput]}>
+                {customUserName}
+              </View>
+              <View style={[styles.textInput]}>
+                {customPassword}
+              </View>
                 {customTextButton}
-
-                  </View>
-                </View>
-              </ScrollView>
-              <View style={[styles.footer]}></View>
-            </KeyboardAvoidingView>
-            </Image>
+              </View>
+            </View>
+          </ScrollView>
+          <View style={[styles.footer]}></View>
+        </KeyboardAvoidingView>
+      </Image>
     );
   }
 }
@@ -58,6 +58,282 @@ class ChatScreen extends React.Component {
   }
 }
 
+class ContactPedro extends React.Component {
+  render () {
+    const { navigate } = this.props.navigation;
+
+    return (
+      <View style={styles.container}>
+        <View style={[styles.headerIn]}>
+          <TouchableOpacity style={[styles.logoutm]} onPress={() => navigate('Address')}>
+          {BackButton}
+          </TouchableOpacity>
+        </View>
+        <ScrollView>
+          <View style={[styles.content]}>
+            <View style={[styles.box3]}>
+              <Image style={[styles.contactImage]} source={require('./images/power-cord.png')}/>
+              <Text style={[styles.contactTitle]}>Pedro Camacho</Text>
+              <Text style={[styles.contactDescTitle]}>INFORMACION DE INTERES</Text>
+              <Text style={[styles.contactDesc]}>Reparacion de cableado</Text>
+              <Text style={[styles.contactPhone]}>Telf: +17865853226</Text>
+            </View>
+            <View style={[styles.box4]}>
+              <TouchableOpacity style={[styles.boxCheck]} onPress={() => Communications.phonecall('+17865853226', true)}>
+                <View>{PhoneIcon}</View>
+              </TouchableOpacity>
+              <TouchableOpacity style={[styles.boxWrite]} onPress={() => Communications.email(['canaanabelardo@gmail.com'],null,null,'My Subject','My body text')}>
+
+                <View>{EditIcon}</View>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </ScrollView>
+        <View style={[styles.footerIn]}>
+        <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
+          <View style={[styles.boxFooterIcons]}>{MessageIconf}</View>
+          <Text style={[styles.minitextFooter]}>Mensajes</Text>
+        </View>
+        <TouchableOpacity style={[styles.boxf,styles.boxc0, styles.boxFooter]} onPress={() => navigate('Address')}>
+          <View style={[styles.boxFooterIcons]}>{AddressIconf}</View>
+          <Text style={[styles.minitextFooter]}>Directorio</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.boxf,styles.boxc0, styles.boxFooter]} onPress={() => navigate('Profile')}>
+          <View style={[styles.boxFooterHomeIcons]}>{HomeIconf}</View>
+          <Text style={[styles.minitextFooter]}>Home</Text>
+        </TouchableOpacity>
+        <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
+          <View style={[styles.boxFooterIcons]}>{PlusIconf}</View>
+          <Text style={[styles.minitextFooter]}>Pronto</Text>
+        </View>
+        <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
+          <View style={[styles.boxFooterIcons]}>{PlusIconf}</View>
+          <Text style={[styles.minitextFooter]}>Pronto</Text>
+        </View>
+        </View>
+      </View>
+    );
+  }
+}
+
+class ContactAbelardo extends React.Component {
+  render () {
+    const { navigate } = this.props.navigation;
+
+    return (
+      <View style={styles.container}>
+        <View style={[styles.headerIn]}>
+          <TouchableOpacity style={[styles.logoutm]} onPress={() => navigate('Address')}>
+          {BackButton}
+          </TouchableOpacity>
+        </View>
+        <ScrollView>
+          <View style={[styles.content]}>
+            <View style={[styles.box3]}>
+              <Image style={[styles.contactImage]} source={require('./images/tap.png')}/>
+              <Text style={[styles.contactTitle]}>Abelardo Canaan</Text>
+              <Text style={[styles.contactDescTitle]}>INFORMACION DE INTERES</Text>
+              <Text style={[styles.contactDesc]}>Reparacion de tuberias</Text>
+              <Text style={[styles.contactPhone]}>Telf: +17865853226</Text>
+            </View>
+            <View style={[styles.box4]}>
+              <TouchableOpacity style={[styles.boxCheck]} onPress={() => Communications.phonecall('+17865853226', true)}>
+                <View>{PhoneIcon}</View>
+              </TouchableOpacity>
+              <TouchableOpacity style={[styles.boxWrite]} onPress={() => Communications.email(['canaanabelardo@gmail.com'],null,null,'My Subject','My body text')}>
+
+                <View>{EditIcon}</View>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </ScrollView>
+        <View style={[styles.footerIn]}>
+        <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
+          <View style={[styles.boxFooterIcons]}>{MessageIconf}</View>
+          <Text style={[styles.minitextFooter]}>Mensajes</Text>
+        </View>
+        <TouchableOpacity style={[styles.boxf,styles.boxc0, styles.boxFooter]} onPress={() => navigate('Address')}>
+          <View style={[styles.boxFooterIcons]}>{AddressIconf}</View>
+          <Text style={[styles.minitextFooter]}>Directorio</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.boxf,styles.boxc0, styles.boxFooter]} onPress={() => navigate('Profile')}>
+          <View style={[styles.boxFooterHomeIcons]}>{HomeIconf}</View>
+          <Text style={[styles.minitextFooter]}>Home</Text>
+        </TouchableOpacity>
+        <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
+          <View style={[styles.boxFooterIcons]}>{PlusIconf}</View>
+          <Text style={[styles.minitextFooter]}>Pronto</Text>
+        </View>
+        <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
+          <View style={[styles.boxFooterIcons]}>{PlusIconf}</View>
+          <Text style={[styles.minitextFooter]}>Pronto</Text>
+        </View>
+        </View>
+      </View>
+    );
+  }
+}
+
+class AddressBook extends React.Component {
+  render () {
+    const { navigate } = this.props.navigation;
+
+    return (
+      <View style={styles.container}>
+        <View style={[styles.headerIn]}>
+          <TouchableOpacity style={[styles.logoutm]} onPress={() => navigate('Profile')}>
+            {BackButton}
+          </TouchableOpacity>
+        </View>
+        <ScrollView>
+          <View style={[styles.contactWrapper]}>
+            <Grid style={{marginTop: 25}}>
+              <Col>
+                <TouchableOpacity style={[styles.contactBoxLeft]} onPress={() => navigate('Pedro')}>
+                  <Image source={require('./images/power-cord.png')}/>
+                  <Text>Pedro Camacho</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxRight]} onPress={() => navigate('Abelardo')}>
+                  <Image source={require('./images/tap.png')}/>
+                  <Text>Abelardo Canaan</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxLeft]} onPress={() => navigate('Pedro')}>
+                  <Image source={require('./images/power-cord.png')}/>
+                  <Text>Pedro Camacho</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxRight]} onPress={() => navigate('Abelardo')}>
+                  <Image source={require('./images/tap.png')}/>
+                  <Text>Abelardo Canaan</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxLeft]} onPress={() => navigate('Pedro')}>
+                  <Image source={require('./images/power-cord.png')}/>
+                  <Text>Pedro Camacho</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxRight]} onPress={() => navigate('Abelardo')}>
+                  <Image source={require('./images/tap.png')}/>
+                  <Text>Abelardo Canaan</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxLeft]} onPress={() => navigate('Pedro')}>
+                  <Image source={require('./images/power-cord.png')}/>
+                  <Text>Pedro Camacho</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxRight]} onPress={() => navigate('Abelardo')}>
+                  <Image source={require('./images/tap.png')}/>
+                  <Text>Abelardo Canaan</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxLeft]} onPress={() => navigate('Pedro')}>
+                  <Image source={require('./images/power-cord.png')}/>
+                  <Text>Pedro Camacho</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxRight]} onPress={() => navigate('Abelardo')}>
+                  <Image source={require('./images/tap.png')}/>
+                  <Text>Abelardo Canaan</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxLeft]} onPress={() => navigate('Pedro')}>
+                  <Image source={require('./images/power-cord.png')}/>
+                  <Text>Pedro Camacho</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxRight]} onPress={() => navigate('Abelardo')}>
+                  <Image source={require('./images/tap.png')}/>
+                  <Text>Abelardo Canaan</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxLeft]} onPress={() => navigate('Pedro')}>
+                  <Image source={require('./images/power-cord.png')}/>
+                  <Text>Pedro Camacho</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxRight]} onPress={() => navigate('Abelardo')}>
+                  <Image source={require('./images/tap.png')}/>
+                  <Text>Abelardo Canaan</Text>
+                </TouchableOpacity>
+              </Col>
+              <Col>
+                <TouchableOpacity style={[styles.contactBoxRight]} onPress={() => navigate('Abelardo')}>
+                  <Image source={require('./images/tap.png')}/>
+                  <Text>Abelardo Canaan</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxLeft]} onPress={() => navigate('Pedro')}>
+                  <Image source={require('./images/power-cord.png')}/>
+                  <Text>Pedro Camacho</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxRight]} onPress={() => navigate('Abelardo')}>
+                  <Image source={require('./images/tap.png')}/>
+                  <Text>Abelardo Canaan</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxLeft]} onPress={() => navigate('Pedro')}>
+                  <Image source={require('./images/power-cord.png')}/>
+                  <Text>Pedro Camacho</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxRight]} onPress={() => navigate('Abelardo')}>
+                  <Image source={require('./images/tap.png')}/>
+                  <Text>Abelardo Canaan</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxLeft]} onPress={() => navigate('Pedro')}>
+                  <Image source={require('./images/power-cord.png')}/>
+                  <Text>Pedro Camacho</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxRight]} onPress={() => navigate('Abelardo')}>
+                  <Image source={require('./images/tap.png')}/>
+                  <Text>Abelardo Canaan</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxLeft]} onPress={() => navigate('Pedro')}>
+                  <Image source={require('./images/power-cord.png')}/>
+                  <Text>Pedro Camacho</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxRight]} onPress={() => navigate('Abelardo')}>
+                  <Image source={require('./images/tap.png')}/>
+                  <Text>Abelardo Canaan</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxLeft]} onPress={() => navigate('Pedro')}>
+                  <Image source={require('./images/power-cord.png')}/>
+                  <Text>Pedro Camacho</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxRight]} onPress={() => navigate('Abelardo')}>
+                  <Image source={require('./images/tap.png')}/>
+                  <Text>Abelardo Canaan</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxLeft]} onPress={() => navigate('Pedro')}>
+                  <Image source={require('./images/power-cord.png')}/>
+                  <Text>Pedro Camacho</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxRight]} onPress={() => navigate('Abelardo')}>
+                  <Image source={require('./images/tap.png')}/>
+                  <Text>Abelardo Canaan</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.contactBoxLeft]} onPress={() => navigate('Pedro')}>
+                  <Image source={require('./images/power-cord.png')}/>
+                  <Text>Pedro Camacho</Text>
+                </TouchableOpacity>
+              </Col>
+            </Grid>
+          </View>
+        </ScrollView>
+        <View style={[styles.footerIn]}>
+          <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
+            <View style={[styles.boxFooterIcons]}>{MessageIconf}</View>
+            <Text style={[styles.minitextFooter]}>Mensajes</Text>
+          </View>
+          <TouchableOpacity style={[styles.boxf,styles.boxc0, styles.boxFooter]} onPress={() => navigate('Address')}>
+            <View style={[styles.boxFooterIcons]}>{AddressIconf}</View>
+            <Text style={[styles.minitextFooter]}>Directorio</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.boxf,styles.boxc0, styles.boxFooter]} onPress={() => navigate('Profile')}>
+            <View style={[styles.boxFooterHomeIcons]}>{HomeIconf}</View>
+            <Text style={[styles.minitextFooter]}>Home</Text>
+          </TouchableOpacity>
+          <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
+            <View style={[styles.boxFooterIcons]}>{PlusIconf}</View>
+            <Text style={[styles.minitextFooter]}>Pronto</Text>
+          </View>
+          <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
+            <View style={[styles.boxFooterIcons]}>{PlusIconf}</View>
+            <Text style={[styles.minitextFooter]}>Pronto</Text>
+          </View>
+        </View>
+      </View>
+    );
+  }
+}
+
 class ProfileScreen extends React.Component {
 
 
@@ -65,7 +341,7 @@ class ProfileScreen extends React.Component {
     navigationOptions = {
       headerMode:'screen'
     };
-const { navigate } = this.props.navigation;
+    const { navigate } = this.props.navigation;
 
     return (
 
@@ -113,28 +389,27 @@ const { navigate } = this.props.navigation;
         </ScrollView>
         <View style={[styles.footerIn]}>
         <TouchableOpacity style={[styles.boxf,styles.boxc0, styles.boxFooter]} onPress={() => navigate('Message')}>
-  <View style={[styles.boxFooterIcons]}>{MessageIconf}</View>
+          <View style={[styles.boxFooterIcons]}>{MessageIconf}</View>
           <Text style={[styles.minitextFooter]}>Mensajes</Text>
         </TouchableOpacity>
-        <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
-  <View style={[styles.boxFooterIcons]}>{AddressIconf}</View>
+        <TouchableOpacity style={[styles.boxf,styles.boxc0, styles.boxFooter]} onPress={() => navigate('Address')}>
+          <View style={[styles.boxFooterIcons]}>{AddressIconf}</View>
           <Text style={[styles.minitextFooter]}>Directorio</Text>
-        </View>
+        </TouchableOpacity>
         <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
-  <View style={[styles.boxFooterHomeIcons]}>{HomeIconf}</View>
+          <View style={[styles.boxFooterHomeIcons]}>{HomeIconf}</View>
           <Text style={[styles.minitextFooter]}>Home</Text>
         </View>
         <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
-  <View style={[styles.boxFooterIcons]}>{PlusIconf}</View>
+          <View style={[styles.boxFooterIcons]}>{PlusIconf}</View>
           <Text style={[styles.minitextFooter]}>Pronto</Text>
         </View>
         <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
-  <View style={[styles.boxFooterIcons]}>{PlusIconf}</View>
+          <View style={[styles.boxFooterIcons]}>{PlusIconf}</View>
           <Text style={[styles.minitextFooter]}>Pronto</Text>
         </View>
         </View>
       </View>
-
     );
   }
 }
@@ -143,7 +418,7 @@ const { navigate } = this.props.navigation;
 class MessageScreen extends React.Component {
 
   render() {
-const { navigate } = this.props.navigation;
+    const { navigate } = this.props.navigation;
     return (
 
       <View style={styles.container}>
@@ -188,15 +463,15 @@ const { navigate } = this.props.navigation;
         </ScrollView>
         <View style={[styles.footerIn]}>
         <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
-  <View style={[styles.boxFooterIcons]}>{MessageIconf}</View>
+          <View style={[styles.boxFooterIcons]}>{MessageIconf}</View>
           <Text style={[styles.minitextFooter]}>Mensajes</Text>
         </View>
-        <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
-  <View style={[styles.boxFooterIcons]}>{AddressIconf}</View>
+        <TouchableOpacity style={[styles.boxf,styles.boxc0, styles.boxFooter]} onPress={() => navigate('Address')}>
+          <View style={[styles.boxFooterIcons]}>{AddressIconf}</View>
           <Text style={[styles.minitextFooter]}>Directorio</Text>
-        </View>
+        </TouchableOpacity>
         <TouchableOpacity style={[styles.boxf,styles.boxc0, styles.boxFooter]} onPress={() => navigate('Profile')}>
-  <View style={[styles.boxFooterHomeIcons]}>{HomeIconf}</View>
+          <View style={[styles.boxFooterHomeIcons]}>{HomeIconf}</View>
           <Text style={[styles.minitextFooter]}>Home</Text>
         </TouchableOpacity>
         <View style={[styles.boxf,styles.boxc0, styles.boxFooter]}>
@@ -230,7 +505,8 @@ const UserIcon = (<Icon name="user-circle-o" size={110} color="#ddd"/>);
 const BackButton = (<Icon name="arrow-left" backgroundColor={azul} size={26} color="#FFF"/>);
 const TrashIcon = (<Icon name="trash" size={26} color="#FFF"/>);
 const CheckIcon = (<Icon name="check" size={26} color="#01DF01"/>);
-const EditIcon = (<Icon name="pencil-square-o" size={26} color="#848484"/>);
+const PhoneIcon = (<Icon name="phone" size={26} color="#01DF01"/>);
+const EditIcon = (<Icon name="pencil-square-o" size={26} color="#488dd8"/>);
 
 const customUserName = (
   <Hideo
@@ -268,6 +544,48 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 50,
     marginBottom: 40
+  },
+  contactWrapper: {
+    marginTop: 50,
+    flex: 2,
+  },
+  contactBoxLeft: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 150,
+    margin: 4,
+    backgroundColor: azul
+  },
+  contactBoxRight: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 150,
+    margin: 4,
+    backgroundColor: 'white'
+  },
+  contactPhone: {
+    marginTop: 10,
+    fontSize: 20
+  },
+  contactImage:{
+    marginTop: 20
+  },
+  contactTitle:{
+    marginLeft: 10,
+    marginTop: 10,
+    fontFamily: 'Roboto',
+    fontSize: 20,
+    color: 'blue'
+  },
+  contactDescTitle:{
+    fontFamily: 'Roboto',
+    fontSize: 15,
+    color:"#999"
+  },
+  contactDesc:{
+    fontFamily: 'Roboto',
+    fontSize: 13,
+    color:"#999"
   },
   text: {
     flex: 1,
@@ -449,7 +767,6 @@ userPM:{
     fontSize: 20,
     color: azul,
     marginBottom:7
-
   },
 box4: {
   width: 450,
@@ -606,7 +923,6 @@ boxc3: {
       fontSize: 13,
       color:"#999",
       marginBottom:10
-
     },
     minitextFooter:{
       marginTop: 0,
@@ -653,13 +969,16 @@ boxc3: {
 const SimpleApp = StackNavigator({
   Home: { screen: HomeScreen },
   Profile: { screen: ProfileScreen },
+  Address: { screen: AddressBook },
+  Pedro: { screen: ContactPedro },
+  Abelardo: { screen: ContactAbelardo },
   Message: { screen: MessageScreen },
   Chat: { screen: ChatScreen },
 },{
   navigationOptions: {
     header: null,
   },
-  });
+});
 
 
 export default SimpleApp;
