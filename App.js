@@ -74,7 +74,7 @@ class ContactPedro extends React.Component {
             <View style={[styles.box3]}>
               <Image style={[styles.contactImage]} source={require('./images/power-cord.png')}/>
               <Text style={[styles.contactTitle]}>Pedro Camacho</Text>
-              <Text style={[styles.contactDescTitle]}>INFORMACION DE INTERES</Text>
+              <Text style={[styles.contactDescTitle]}>INFORMACION HOLIS DE INTERES</Text>
               <Text style={[styles.contactDesc]}>Reparacion de cableado</Text>
               <Text style={[styles.contactPhone]}>Telf: +17865853226</Text>
             </View>
