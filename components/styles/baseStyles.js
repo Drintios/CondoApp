@@ -1,13 +1,7 @@
-const colors = {
-  azul: '#4379eb',
-  white: '#fff',
-  gainsboro: '#ddd',
-  freeSpeechRed: '#df0101',
-  freeSpeechGreen: '#01df01',
-  havelockBlue: '#488dd8'
-}
+import { StyleSheet } from 'react-native';
+import colors from './colors'
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   content: {
     alignItems: 'center',
     marginTop: 50,

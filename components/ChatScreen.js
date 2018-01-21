@@ -3,7 +3,7 @@ import {TextInput, AppRegistry, StyleSheet, Text, Image, View, ScrollView, Touch
 import {Hideo} from 'react-native-textinput-effects';
 import {Actions} from "react-native-router-flux";
 
-class ChatScreen extends React.Component {
+class ChatScreen extends Component {
   static navigationOptions = {
     title: 'Chat with Lucy',
     navigationBarHidden: true
@@ -16,3 +16,5 @@ class ChatScreen extends React.Component {
     );
   }
 }
+
+export default ChatScreen;
