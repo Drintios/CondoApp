@@ -3,7 +3,8 @@ import {TextInput, AppRegistry, Text, Image, View, ScrollView, TouchableOpacity,
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Hideo} from 'react-native-textinput-effects';
 import {Actions} from "react-native-router-flux";
-import {styles, colors} from "./styles/baseStyles";
+import styles from "./styles/baseStyles";
+import {BackButton, PhoneIcon, EditIcon, MessageIconf, AddressIconf, HomeIconf, PlusIconf} from "./styles/icons";
 
 class ContactScreen extends Component {
   render () {

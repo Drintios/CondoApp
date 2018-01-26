@@ -13,12 +13,12 @@ import ProfileScreen from './components/ProfileScreen';
 import MessageScreen from './components/MessageScreen';
 
 const SimpleApp = StackNavigator({
-  Message: { screen: MessageScreen },
-  Profile: { screen: ProfileScreen },
-  Home:    { screen: Homepage },
   Address: { screen: AddressBook },
   Contact: { screen: ContactScreen },
   Chat:    { screen: ChatScreen },
+  Message: { screen: MessageScreen },
+  Profile: { screen: ProfileScreen },
+  Home:    { screen: Homepage },
 },{
   navigationOptions: {
     header: null,

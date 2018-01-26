@@ -5,7 +5,13 @@ import {Hideo} from 'react-native-textinput-effects';
 import {Actions} from "react-native-router-flux";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import styles from "./styles/baseStyles";
-import {BackButton, MessageIconf, AddressIconf, HomeIconf, PlusIconf} from "./styles/icons";
+
+const AddressIconf = (<Icon name="address-card-o" size={26} color={colors.gainsboro}/>);
+const BackButton = (<Icon name="arrow-left" backgroundColor={colors.azul} size={26} color={colors.white}/>);
+const HomeIconf = (<Icon name="home" size={26} color={colors.white}/>);
+const MessageIconf = (<Icon name="envelope-o" size={26} color={colors.gainsboro}/>);
+const PlusIconf = (<Icon name="plus" size={26} color={colors.gainsboro}/>);
+
 
 class AddressBook extends Component {
   render () {
