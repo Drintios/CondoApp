@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {TextInput, AppRegistry, Text, Image, View, ScrollView, TouchableOpacity, Navigate, KeyboardAvoidingView} from 'react-native';
 import {Hideo} from 'react-native-textinput-effects';
 import {Actions} from "react-native-router-flux";
@@ -36,15 +36,10 @@ const customPassword = (
   />
 );
 
-class Homepage extends Component {
+class Homepage extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
 
-    const customTextButton = (
-      <Icon.Button name="sign-in" backgroundColor="#11cf78" onPress={() => navigate('Address')} >
-        <Text style={{fontFamily: 'Roboto', fontSize: 15, color:colors.white}} >Iniciar Sesion</Text>
-      </Icon.Button>
-    );
     return (
       <Image source={require('./../images/bg.jpg')} style={styles.backgroundImage}>
         <KeyboardAvoidingView style={styles.container}>
@@ -61,15 +56,16 @@ class Homepage extends Component {
               <View style={[styles.textInput]}>
                 {customPassword}
               </View>
-                {customTextButton}
+                <Icon.Button name="sign-in" backgroundColor="#11cf78" onPress={() => navigate('Profile')} >
+                  <Text style={{fontFamily: 'Roboto', fontSize: 15, color:colors.white}} >Iniciar Sesion</Text>
+                </Icon.Button>
               </View>
             </View>
           </ScrollView>
-          <View style={[styles.footer]}></View>
         </KeyboardAvoidingView>
       </Image>
     );
   }
 }
 
- export default Homepage;
+export default Homepage;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput, Button, AppRegistry, StyleSheet, Text, Image, View, ScrollView, TouchableOpacity, Navigate, KeyboardAvoidingView } from 'react-native';
+import { TextInput, Button, AppRegistry, StyleSheet, Text, Image, View, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Hideo } from 'react-native-textinput-effects';
 import { StackNavigator } from 'react-navigation';
@@ -12,18 +12,20 @@ import ContactScreen from './components/ContactScreen';
 import ProfileScreen from './components/ProfileScreen';
 import MessageScreen from './components/MessageScreen';
 
-const SimpleApp = StackNavigator({
-  Address: { screen: AddressBook },
+const CondoApp = StackNavigator({
   Contact: { screen: ContactScreen },
-  Chat:    { screen: ChatScreen },
-  Message: { screen: MessageScreen },
   Profile: { screen: ProfileScreen },
   Home:    { screen: Homepage },
+  Message: { screen: MessageScreen },
+  Address: { screen: AddressBook },
+  Chat:    { screen: ChatScreen },
 },{
   navigationOptions: {
     header: null,
+    initialRouteName: 'Profile'
   },
 });
 
+AppRegistry.registerComponent('CondoApp', () => CondoApp);
 
-export default SimpleApp;
+export default CondoApp;
